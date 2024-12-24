@@ -1,5 +1,4 @@
-const { isValidEmail, randomPasswordGenerator } =
-  require("emailpassword").default;
+import { isValidEmail, randomPasswordGenerator } from "../index.js";
 
 // Helper function to check if password contains specific character types
 function checkPasswordComposition(password, options) {
