@@ -39,7 +39,7 @@ A lightweight npm package providing two essential utilities:
 Install the package using npm:
 
 ```bash
-npm install emailpassword
+npm install @wandering/emailpassword
 ```
 
 ## Usage
@@ -47,13 +47,13 @@ npm install emailpassword
 ### Import the Package
 
 ```javascript
-import EmailPassword from 'emailpassword';
+import { isValidEmail, randomPasswordGenerator } from '@wandering/emailpassword';
 ```
 
 ### Email Validation
 
 ```javascript
-const isValidEmail = EmailPassword.isValidEmail('example@example.com');
+const isValidEmail = isValidEmail('example@example.com');
 
 if (isValidEmail) {
   console.log('Valid email address');
@@ -65,7 +65,7 @@ if (isValidEmail) {
 ### Random Password Generator
 
 ```javascript
-const password = EmailPassword.randomPasswordGenerator(12, {
+const password = randomPasswordGenerator(12, {
   numbers: true,
   special: true,
   alphabets: true
@@ -86,7 +86,7 @@ Generates a random password with the specified length and character set options.
   - `length` (number): Length of the password (default: 8).
   - `options` (Object):
     - `numbers` (boolean): Include numbers (default: true).
-    - `special` (boolean): Include special characters (default: true).
+    - `special` (boolean): Include special characters (!@#$%^&*()_+-=[]{}|;:,.<>?) (default: true).
     - `alphabets` (boolean): Include alphabets (default: true).
 
 ## Example Project
@@ -94,18 +94,18 @@ Generates a random password with the specified length and character set options.
 Here is an example demonstrating both utilities:
 
 ```javascript
-import EmailPassword from 'emailpassword';
+import { isValidEmail, randomPasswordGenerator } from '@wandering/emailpassword';
 
 // Validate an email
 const email = 'user@example.com';
-if (!EmailPassword.isValidEmail(email)) {
+if (!isValidEmail(email)) {
   console.log('Invalid email address');
 } else {
   console.log('Valid email address');
 }
 
 // Generate a random password
-const password = EmailPassword.randomPasswordGenerator(10, {
+const password = randomPasswordGenerator(10, {
   numbers: true,
   special: true,
   alphabets: true
