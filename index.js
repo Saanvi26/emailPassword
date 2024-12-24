@@ -106,4 +106,4 @@ function randomPasswordGenerator(
   }
   return password;
 }
-export default { isValidEmail, randomPasswordGenerator };
+export { isValidEmail, randomPasswordGenerator };
